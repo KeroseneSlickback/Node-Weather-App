@@ -23,9 +23,10 @@ const forecast = (lat, long, callback) => {
 		} else if (body.error) {
 			callback('Unable to connect to weather service', undefined);
 		} else {
+			console.log(body);
 			callback(
 				undefined,
-				`In ${body.location.name}, it is currently ${body.current.temperature}F and feels like ${body.current.feelslike}F.`
+				`In ${body.location.name}, it is currently ${body.current.temperature}F and feels like ${body.current.feelslike}F. The humidity is ${body.current.humidity}% and precip is ${body.current.precip}.`
 			);
 		}
 	});
